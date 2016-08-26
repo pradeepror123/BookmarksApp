@@ -1,0 +1,9 @@
+<% if @bookmarks.count == 1 %>
+      <h1> We have <%= @bookmarks.count %> Bookmark </h1>
+     <% else %>
+       <h1> We have <%= @bookmarks.count %> Bookmarks </h1>
+<% end %>
+
+<% @bookmarks.each do |bookmark| %>
+<ul> <%= bookmark.url %> </ul>
+<% end %>
