@@ -1,9 +1,15 @@
 <% if @bookmarks.count == 1 %>
-      <h1> We have <%= @bookmarks.count %> Bookmark </h1>
-     <% else %>
-       <h1> We have <%= @bookmarks.count %> Bookmarks </h1>
+  <h1> In Total We have <%= @bookmarks.count %> Bookmark </h1>
+ <% else %>
+   <h1> In Total We have <%= @bookmarks.count %> Bookmarks </h1>
 <% end %>
 
-<% @bookmarks.each do |bookmark| %>
-<ul> <%= bookmark.url %> </ul>
-<% end %>
+<ul>
+  <% @bookmarks.each do |bookmark| %>
+  <li>
+    <% if bookmark.favorite %> * <% end %>
+    <%= link_to(bookmark.title, bookmark.url) %>
+    <%= bookmark.url %>
+  </li>
+  <% end %>
+</ul>
